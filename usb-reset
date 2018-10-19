@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Copyright © 2018 Jakub Wilk <jwilk@jwilk.net>
+# SPDX-License-Identifier: MIT
+
+set -e -u
+for path in /sys/bus/pci/drivers/[ouex]hci-pci/*:*
+do
+    dev=${path##*/}
+    drv=${path%/*}
+    printf '%s\n' "$dev" > "$drv/unbind"
+    printf '%s\n' "$dev" > "$drv/bind"
+done
+
+# vim:ts=4 sts=4 sw=4 et

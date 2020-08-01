@@ -10,7 +10,7 @@ then
 fi
 for dev in "$@"
 do
-    dev=$(readlink -f "$dev")
+    dev=$(readlink -v -e "$dev")
     dev=${dev#/dev/}
     syspath="/sys/block/$dev/device"
     stat "$syspath/delete" > /dev/null

@@ -3,9 +3,7 @@
 # Copyright © 2018-2022 Jakub Wilk <jwilk@jwilk.net>
 # SPDX-License-Identifier: MIT
 
-: '''
-: reset all USB controllers
-: '''
+### reset all USB controllers ###
 
 set -e -u
 for path in /sys/bus/pci/drivers/[ouex]hci[-_]*/*:*
